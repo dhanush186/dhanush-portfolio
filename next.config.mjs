@@ -1,17 +1,23 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
-/** @type {import('next').NextConfig} **/
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: isProduction ? '/portfolio2' : '',
-  assetPrefix: isProduction ? '/portfolio2/' : '',
+
+  // GitHub Pages repository path
+  basePath: isProduction ? '/dhanush-portfolio' : '',
+  assetPrefix: isProduction ? '/dhanush-portfolio/' : '',
+
   reactStrictMode: false,
+
   eslint: {
-    ignoreDuringBuilds: true
+    ignoreDuringBuilds: true,
   },
+
   typescript: {
     ignoreBuildErrors: true,
   },
+
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -21,13 +27,21 @@ const nextConfig = {
       },
     ],
   },
+
   // Performance optimizations
   swcMinify: true,
+
   compiler: {
     removeConsole: isProduction,
   },
+
   experimental: {
-    optimizePackageImports: ['@splinetool/react-spline', 'gsap', 'framer-motion', 'react-icons', 'lucide-react'],
+    optimizePackageImports: [
+      '@splinetool/react-spline',
+      'gsap',
+      'framer-motion',
+      'react-icons',
+    ],
   },
 };
 
