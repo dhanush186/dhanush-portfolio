@@ -43,7 +43,7 @@ Welcome to my personal portfolio website! This showcases my research, projects, 
 2. Navigate to the project directory:
 
     ```bash
-    cd portfolio2
+    cd dhanush-portfolio
     ```
 
 3. Install dependencies:
