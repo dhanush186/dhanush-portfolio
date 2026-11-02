@@ -1,72 +1,65 @@
+"use client";
 import React from "react";
+import ContactForm from "@/components/ContactForm";
+import { config } from "@/data/config";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa6";
 
 function Page() {
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    console.log(event)
-  }
   return (
-    <section>
-      <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-        <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-zinc-200">
-          Contact Me
-        </h2>
-        <form action="#" className="space-y-8">
-          <div>
-            <label
-              htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              Your email
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-              placeholder="name@flowbite.com"
-              required
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="subject"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              Subject
-            </label>
-            <input
-              type="text"
-              id="subject"
-              className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-              placeholder="Let me know how I can help you"
-              required
-            />
-          </div>
-          <div className="sm:col-span-2">
-            <label
-              htmlFor="message"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-            >
-              Your message
-            </label>
-            <textarea
-              id="message"
-              rows={6}
-              className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="Leave a comment..."
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-            // onClick={handleSubmit}
+    <div className="container mx-auto px-4 md:px-[50px] xl:px-[150px] text-zinc-300 pt-28 pb-20">
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-10">
+          <h1 className="text-4xl font-bold text-white mb-3">Get in Touch</h1>
+          <p className="text-zinc-400 text-sm max-w-md mx-auto">
+            Have an internship opportunity, collaboration idea, or research query? Reach out directly.
+          </p>
+        </div>
+
+        <Card className="bg-zinc-900/70 border border-zinc-700/80 backdrop-blur-md rounded-2xl shadow-xl">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-2xl text-white">Send a Message</CardTitle>
+            <CardDescription className="text-zinc-400 text-sm">
+              Direct email:{" "}
+              <a
+                href={`mailto:${config.email}`}
+                className="text-primary hover:underline font-mono"
+              >
+                {config.email}
+              </a>
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ContactForm />
+          </CardContent>
+        </Card>
+
+        <div className="flex justify-center items-center gap-6 mt-8">
+          <a
+            href={config.social.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-white transition-colors"
           >
-            Send message
-          </button>
-        </form>
+            <FaGithub className="w-4 h-4" /> GitHub
+          </a>
+          <a
+            href={config.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-[#0077b5] transition-colors"
+          >
+            <FaLinkedin className="w-4 h-4" /> LinkedIn
+          </a>
+          <a
+            href={`mailto:${config.email}`}
+            className="flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-white transition-colors"
+          >
+            <FaEnvelope className="w-4 h-4" /> {config.email}
+          </a>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
 

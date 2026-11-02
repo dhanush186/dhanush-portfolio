@@ -1,4 +1,4 @@
-import { EXPERIENCE, SkillNames, SKILLS } from "@/data/constants";
+import { EDUCATION, EXPERIENCE, SkillNames, SKILLS } from "@/data/constants";
 import { SectionHeader } from "./section-header";
 import { Badge } from "../ui/badge";
 import { cn } from "@/lib/utils";
@@ -6,6 +6,7 @@ import SectionWrapper from "../ui/section-wrapper";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
+import { GraduationCap } from "lucide-react";
 
 const ExperienceSection = () => {
   return (
@@ -16,8 +17,8 @@ const ExperienceSection = () => {
       <div className="w-full max-w-4xl px-4 md:px-8 mx-auto">
         <SectionHeader
           id="experience"
-          title="Experience"
-          desc="My professional journey."
+          title="Experience & Education"
+          desc="My research internship and academic journey."
           className="mb-12 md:mb-20 mt-0"
         />
 
@@ -30,9 +31,77 @@ const ExperienceSection = () => {
               <ExperienceCard experience={exp} index={index} />
             </div>
           ))}
+
+          {EDUCATION.map((edu, index) => (
+            <div key={edu.id} className="relative">
+              <EducationCard education={edu} index={index + EXPERIENCE.length} />
+            </div>
+          ))}
         </div>
       </div>
     </SectionWrapper>
+  );
+};
+
+const EducationCard = ({
+  education,
+  index,
+}: {
+  education: (typeof EDUCATION)[0];
+  index: number;
+}) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.4,
+        delay: index * 0.1,
+        ease: "easeOut",
+      }}
+      viewport={{ once: true, margin: "-50px" }}
+    >
+      <Card
+        className={cn(
+          "bg-white/10 dark:bg-white/5 backdrop-blur-xl",
+          "border border-white/20 dark:border-white/10",
+          "hover:bg-white/20 dark:hover:bg-white/10",
+          "hover:border-white/30 dark:hover:border-white/20",
+          "transition-all duration-300",
+          "shadow-lg shadow-black/5 hover:shadow-xl hover:shadow-black/10",
+          "text-foreground"
+        )}
+      >
+        <CardHeader className="pb-3">
+          <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <GraduationCap className="w-5 h-5 text-primary" />
+                <CardTitle className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+                  {education.degree}
+                </CardTitle>
+              </div>
+              <div className="text-base font-medium text-slate-700 dark:text-slate-300">
+                {education.institution}, {education.location}
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Badge variant="secondary" className="w-fit font-mono text-xs font-normal bg-white/15 dark:bg-white/10 backdrop-blur-sm border border-white/20 dark:border-white/10 text-slate-800 dark:text-slate-200">
+                {education.graduationYear}
+              </Badge>
+              <Badge variant="default" className="w-fit font-mono text-xs font-medium bg-emerald-600/80 text-white border-0">
+                {education.cgpa}
+              </Badge>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+            {education.description}
+          </p>
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 };
 

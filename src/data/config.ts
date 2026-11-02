@@ -1,33 +1,31 @@
 const config = {
-  title: "Muhilan Raj M | Frontend Developer",
+  title: "Dhanush M | AI/ML Engineer with Python",
   description: {
-    long: "Explore the portfolio of Muhilan Raj, a passionate frontend developer specializing in building clean, modern, and interactive web experiences. Discover my work with HTML, CSS, JavaScript, and latest projects including Crafted Clipz, Inan Book, and Resume Builder. Let's create something amazing together!",
+    long: "Explore the portfolio of Dhanush M, an AI/ML Engineer with Python and B.Tech student in Artificial Intelligence and Data Science at Stella Mary's College of Engineering. Featuring practical machine learning solutions, IIIT Tiruchirappalli research internship, and modern intelligent applications.",
     short:
-      "Discover the portfolio of Muhilan Raj, a frontend developer crafting responsive and interactive web experiences.",
+      "Discover the portfolio of Dhanush M, an AI/ML Engineer with Python building practical machine learning and intelligent software solutions.",
   },
   keywords: [
-    "Muhilan Raj",
+    "Dhanush M",
     "portfolio",
-    "frontend developer",
-    "web development",
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "React",
-    "responsive design",
-    "UI/UX",
-    "Crafted Clipz",
-    "Inan Book",
-    "Inan Infinites",
-    "web design",
-    "animations",
+    "AI/ML Engineer",
+    "Python",
+    "Machine Learning",
+    "Artificial Intelligence",
+    "Data Science",
+    "Deep Learning",
+    "IIIT Tiruchirappalli",
+    "Stella Mary's College of Engineering",
+    "Subgrade Soil Elastic Modulus",
+    "AI Voice Deepfake Detection",
+    "Software Development",
   ],
-  author: "Muhilan Raj",
-  email: "muhilanraj1876@gmail.com",
-  site: "https://muhilanraj.site",
+  author: "Dhanush M",
+  email: "dhanushmuthaiahpillai12@gmail.com",
+  site: "https://dhanush186.github.io/portfolio",
 
   // for github stars button
-  githubUsername: "muhilanraj18",
+  githubUsername: "dhanush186",
   githubRepo: "portfolio",
 
   get ogImg() {
@@ -35,10 +33,10 @@ const config = {
   },
   social: {
     twitter: "",
-    linkedin: "https://www.linkedin.com/in/muhilanraj",
+    linkedin: "https://www.linkedin.com/in/dhanush-m-0a73ab406/",
     instagram: "",
     facebook: "",
-    github: "https://github.com/Muhilanraj18",
+    github: "https://github.com/dhanush186",
   },
 };
 export { config };

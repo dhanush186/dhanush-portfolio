@@ -2,115 +2,84 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-// @ts-ignore
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css/core";
+import projects from "@/data/projects";
+import { ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-import "@splidejs/react-splide/css";
-
-const PROJECTS = [
-  {
-    id: 1,
-    name: "Coding Ducks",
-    description: `Dive into CodingDucks, a fusion of CodePen's creative playground with LeetCode's problem-solving realm.
-Whether you're a newbie or a seasoned coder, join the community to paddle through coding adventures and let your
-creativity soar.`,
-    link: "https://www.codingducks.live",
-    images: [
-      "/assets/projects-screenshots/codingducks/1.png",
-      "/assets/projects-screenshots/codingducks/2.png",
-      "/assets/projects-screenshots/codingducks/3.png",
-      "/assets/projects-screenshots/codingducks/4.png",
-      "/assets/projects-screenshots/codingducks/5.png",
-    ],
-  },
-  {
-    id: 2,
-    name: "Ghost Chat",
-    description: `GhostChat is an anonymous messaging app that allows users to connect without revealing their identities. 
-Join the community for intriguing conversations and mysterious encounters.`,
-    link: "https://ghostchatt.vercel.app/",
-    images: [
-      "/assets/projects-screenshots/ghostchat/1.png",
-      "/assets/projects-screenshots/ghostchat/2.png",
-      "/assets/projects-screenshots/ghostchat/3.png",
-      "/assets/projects-screenshots/ghostchat/4.png",
-    ],
-  },
-  {
-    id: 3,
-    name: "Coupon Luxury",
-    description: `Welcome to CouponLuxury, your destination for exclusive discounts and savings. Explore the platform to find the
-best deals on luxury brands and products. Join our savvy community of shoppers and unlock access to premium coupons.`,
-    link: "https://www.couponluxury.com/",
-    images: [
-      "/assets/projects-screenshots/couponluxury/1.png",
-      "/assets/projects-screenshots/couponluxury/2.png",
-      "/assets/projects-screenshots/couponluxury/3.png",
-      "/assets/projects-screenshots/couponluxury/4.png",
-      "/assets/projects-screenshots/couponluxury/5.png",
-    ],
-  },
-  {
-    id: 4,
-    name: "JNTUA Results Analyser",
-    description: `the go-to app for JNTUA students, empowering them to analyze, compare, and view classwise results effortlessly.
-     Dive into your academic journey with ease, track your progress, and gain valuable insights.`,
-    link: "/projects/4",
-    images: ["/assets/projects-screenshots/jra/1.png"],
-  },
-];
 function Page() {
   return (
-    <>
-      <div className="container mx-auto md:px-[50px] xl:px-[150px] text-zinc-300 h-full">
-        <h1 className="text-4xl mt-[100px] mb-[50px]">Projects</h1>
-        <ul className="grid  md:grid-cols-2 lg:grid-cols-3 gap-10 place-content-around ">
-          {PROJECTS.map((project) => (
-            <li
-              className="w-[300px] h-[400px] border-[.5px] rounded-md border-zinc-600"
-              key={project.id}
-              style={{ backdropFilter: "blur(2px)" }}
-            >
-              <div className="h-[200px]">
-                <Splide
-                  options={{
-                    type: "loop",
-                    interval: 3000,
-                    autoplay: true,
-                    speed: 2000,
-                    perMove: 1,
-                    rewind: true,
-                    easing: "cubic-bezier(0.25, 1, 0.5, 1)",
-                    arrows: false,
-                  }}
-                  aria-label="My Favorite Images"
-                >
-                  {project.images.map((image) => (
-                    <SplideSlide key={image}>
-                      <Image
-                        src={image}
-                        alt={`screenshot of "${project.name}`}
-                        className="w-[300px] h-[200px] rounded-md bg-zinc-900 "
-                        width={300}
-                        height={400}
-                        style={{ height: "200px" }}
-                      />
-                    </SplideSlide>
-                  ))}
-                </Splide>
-              </div>
-              <div className="p-4 text-zinc-300">
-                <h2 className="text-xl">{project.name}</h2>
-                <p className="mt-2 text-xs text-zinc-500">
-                  {project.description}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
+    <div className="container mx-auto px-4 md:px-[50px] xl:px-[150px] text-zinc-300 pt-28 pb-20">
+      <div className="mb-12">
+        <h1 className="text-4xl font-bold text-white mb-3">AI & Software Projects</h1>
+        <p className="text-zinc-400 text-sm max-w-xl">
+          Practical machine learning solutions, research implementations, and intelligent applications built with Python and modern technologies.
+        </p>
       </div>
-    </>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project) => (
+          <div
+            className="rounded-2xl border-[.5px] border-zinc-700/80 bg-zinc-900/60 overflow-hidden flex flex-col justify-between hover:border-zinc-500 transition-all shadow-lg"
+            key={project.id}
+            style={{ backdropFilter: "blur(8px)" }}
+          >
+            <div>
+              <div className="relative h-48 w-full overflow-hidden bg-zinc-800">
+                <Image
+                  src={project.src}
+                  alt={project.title}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  width={400}
+                  height={250}
+                />
+                <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-sm text-zinc-200 text-xs px-2.5 py-1 rounded-full border border-white/10 font-mono">
+                  {project.category}
+                </div>
+              </div>
+
+              <div className="p-6">
+                <h2 className="text-xl font-bold text-white mb-2">{project.title}</h2>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {project.skills.frontend.map((s, idx) => (
+                    <span
+                      key={idx}
+                      className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700"
+                    >
+                      {s.title}
+                    </span>
+                  ))}
+                  {project.skills.backend.map((s, idx) => (
+                    <span
+                      key={idx}
+                      className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700"
+                    >
+                      {s.title}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6 pt-0 flex items-center justify-between gap-3 border-t border-zinc-800/80 mt-2">
+              {project.github && (
+                <Link href={project.github} target="_blank" className="flex-1">
+                  <Button variant="outline" size="sm" className="w-full gap-1 text-xs">
+                    GitHub <ArrowUpRight className="w-3.5 h-3.5" />
+                  </Button>
+                </Link>
+              )}
+              {project.live && (
+                <Link href={project.live} target="_blank" className="flex-1">
+                  <Button variant="default" size="sm" className="w-full gap-1 text-xs">
+                    View Project <ArrowUpRight className="w-3.5 h-3.5" />
+                  </Button>
+                </Link>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

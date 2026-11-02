@@ -66,16 +66,28 @@ const HeroSection = () => {
                       "cursor-default font-display md:text-xl max-w-[90vw] md:whitespace-nowrap bg-clip-text "
                     )}
                   >
-                    Frontend Developer • Creative Technologist
+                    AI/ML Engineer with Python
+                  </p>
+                </BlurIn>
+                <BlurIn delay={1.4}>
+                  <p
+                    className={cn(
+                      "md:self-start mt-2 font-mono text-xs sm:text-sm text-slate-600 dark:text-zinc-400 max-w-lg leading-relaxed",
+                      "cursor-default"
+                    )}
+                  >
+                    B.Tech Artificial Intelligence and Data Science student focused on building practical AI/ML solutions using Python and modern technologies.
                   </p>
                 </BlurIn>
               </div>
               <div className="mt-8 flex flex-col gap-3 w-full max-w-md px-4 md:px-0">
                 <BoxReveal delay={2} width="100%" >
-                  <Button className="flex items-center gap-2 w-full">
-                    <File size={24} />
-                    <p>Resume</p>
-                  </Button>
+                  <Link href="#projects" className="w-full">
+                    <Button className="flex items-center justify-center gap-2 w-full">
+                      <File size={20} />
+                      <p>View Projects</p>
+                    </Button>
+                  </Link>
                 </BoxReveal>
                 <div className="md:self-start flex flex-col sm:flex-row gap-3 w-full">
                   <Tooltip delayDuration={300}>
@@ -85,22 +97,22 @@ const HeroSection = () => {
                           variant={"outline"}
                           className="w-full overflow-hidden"
                         >
-                          Hire Me
+                          Contact Me
                         </Button>
                       </Link>
                     </TooltipTrigger>
                     <TooltipContent side="bottom">
-                      <p>pls 🥹 🙏</p>
+                      <p>Let&apos;s connect</p>
                     </TooltipContent>
                   </Tooltip>
                   <div className="flex items-center justify-center gap-2">
                     <Link href={config.social.github} target="_blank">
-                      <Button variant={"outline"} size="icon">
+                      <Button variant={"outline"} size="icon" aria-label="GitHub">
                         <SiGithub size={20} />
                       </Button>
                     </Link>
                     <Link href={config.social.linkedin} target="_blank">
-                      <Button variant={"outline"} size="icon">
+                      <Button variant={"outline"} size="icon" aria-label="LinkedIn">
                         <SiLinkedin size={20} />
                       </Button>
                     </Link>

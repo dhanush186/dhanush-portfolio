@@ -28,6 +28,10 @@ import {
   SiVuedotjs,
   SiHtml5,
   SiCss3,
+  SiScikitlearn,
+  SiPandas,
+  SiNumpy,
+  SiPytorch,
 } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
 const BASE_PATH = "/assets/projects-screenshots";
@@ -236,6 +240,30 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <SiCss3 />,
   },
+  scikitlearn: {
+    title: "Scikit-Learn",
+    bg: "black",
+    fg: "white",
+    icon: <SiScikitlearn />,
+  },
+  pandas: {
+    title: "Pandas",
+    bg: "black",
+    fg: "white",
+    icon: <SiPandas />,
+  },
+  numpy: {
+    title: "NumPy",
+    bg: "black",
+    fg: "white",
+    icon: <SiNumpy />,
+  },
+  pytorch: {
+    title: "PyTorch",
+    bg: "black",
+    fg: "white",
+    icon: <SiPytorch />,
+  },
 };
 export type Project = {
   id: string;
@@ -250,185 +278,129 @@ export type Project = {
 };
 const projects: Project[] = [
   {
-    id: "crafted-clipz",
-    category: "Video Production",
-    title: "Crafted Clipz",
-    src: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80",
+    id: "soil-elastic-modulus-prediction",
+    category: "Research & Machine Learning",
+    title: "Subgrade Soil Elastic Modulus Predictor",
+    src: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=800&q=80",
     screenshots: ["landing.png"],
-    live: "https://craftedclipz.in/",
+    live: "https://github.com/dhanush186/Elastic-Modulus-Predection",
+    github: "https://github.com/dhanush186/Elastic-Modulus-Predection",
     skills: {
       frontend: [
-        PROJECT_SKILLS.html,
-        PROJECT_SKILLS.css,
-        PROJECT_SKILLS.js,
+        PROJECT_SKILLS.python,
+        PROJECT_SKILLS.scikitlearn,
       ],
-      backend: [],
+      backend: [
+        PROJECT_SKILLS.pandas,
+        PROJECT_SKILLS.numpy,
+      ],
     },
     get content(): JSX.Element {
       return (
         <div>
           <TypographyP className="font-mono ">
-            Crafted Clipz is a creative video editing and production website showcasing high-quality cinematic edits. The platform features a stunning portfolio showcase, client inquiry forms, smooth scroll animations, and a sleek dark aesthetic design that captures the essence of professional video production.
+            An applied machine learning research project conducted during the official research internship at Indian Institute of Information Technology Tiruchirappalli (IIIT Tiruchirappalli) under the supervision of Dr. R. K. Madhumathi.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
           <p className="font-mono mb-2 mt-8">
-            Designed and developed multiple responsive websites as part of a freelance project for Crafted Clipz using HTML, CSS, and JavaScript. Built clean and visually engaging UI layouts aligned with the Crafted Clipz brand identity, following modern design principles and smooth animations.
+            <strong>Research Title:</strong> &ldquo;Machine Learning-Based Prediction of Elastic Modulus of Coir Geotextile Reinforced Subgrade Soils&rdquo;, developed under the AICTE-QIP-PG Certificate Programme on Machine Learning and Cyber Physical Systems.
           </p>
           <p className="font-mono mb-2 mt-4">
-            Implemented interactive components such as navigation menus, forms, and animated sections to enhance user engagement. Followed a mobile-first approach and ensured consistency across different browsers and devices.
+            The project focuses on predicting the elastic modulus of reinforced subgrade soils using supervised machine learning algorithms. By modeling complex geotechnical parameters, this tool accelerates civil and soil engineering design without requiring costly and destructive physical testing.
+          </p>
+          <p className="font-mono mb-2 mt-4">
+            Built using Python, Scikit-Learn, Pandas, and NumPy for comprehensive data preprocessing, feature engineering, cross-validation, and regression performance evaluation (R², RMSE, and MAE).
           </p>
         </div>
       );
     },
   },
   {
-    id: "inan-build",
-    category: "PC Configuration Tool",
-    title: "InanBuild",
-    src: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=800&q=80",
+    id: "ai-voice-deepfake-detection",
+    category: "Deep Learning & Audio AI",
+    title: "AI Voice Deepfake Detection",
+    src: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=800&q=80",
     screenshots: ["landing.png"],
-    live: "#",
+    live: "https://github.com/dhanush186/AI-Voice-Deepfake-Detection",
+    github: "https://github.com/dhanush186/AI-Voice-Deepfake-Detection",
     skills: {
       frontend: [
-        PROJECT_SKILLS.html,
-        PROJECT_SKILLS.css,
-        PROJECT_SKILLS.js,
+        PROJECT_SKILLS.python,
+        PROJECT_SKILLS.pytorch,
       ],
-      backend: [],
+      backend: [
+        PROJECT_SKILLS.scikitlearn,
+        PROJECT_SKILLS.numpy,
+      ],
     },
     get content(): JSX.Element {
       return (
         <div>
           <TypographyP className="font-mono ">
-            InanBuild is an intelligent PC configuration and system design platform built to simplify the complex process of custom PC building. The project focuses on helping users design optimized computer systems based on performance requirements, budget constraints, and future scalability.
+            An intelligent AI-powered deepfake audio detection system engineered in Python to detect synthesized, cloned, and computer-generated human speech.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
           <p className="font-mono mb-2 mt-8">
-            It provides a structured approach to selecting compatible hardware components such as processors, graphics cards, memory, storage, and power supplies, ensuring balanced system performance.
+            With the rapid rise of generative voice cloning technologies, detecting synthetic speech has become essential for digital security and authentication. This system extracts key acoustic and spectral features—including Mel-frequency cepstral coefficients (MFCCs), spectral centroid, and zero-crossing rates.
           </p>
           <p className="font-mono mb-2 mt-4">
-            The platform is designed with a clean, modern user interface that enhances usability for both beginners and experienced users. Emphasis is placed on logical component selection, system efficiency, and real-world hardware understanding.
-          </p>
-          <p className="font-mono mb-2 mt-4">
-            This project demonstrates strong problem-solving skills, deep interest in computer architecture, and the ability to translate technical knowledge into a practical, user-centric software solution.
+            Classification models are trained to differentiate subtle acoustic artifacts and phase discrepancies present in synthetic voice models compared to natural human speech patterns, delivering reliable detection accuracy.
           </p>
         </div>
       );
     },
   },
   {
-    id: "inan-infinites",
-    category: "Company Website",
-    title: "Inan Infinites",
-    src: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
+    id: "sih-2026-solution",
+    category: "AI Solutions & Data Science",
+    title: "Smart India Hackathon Project",
+    src: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
     screenshots: ["landing.png"],
-    live: "#",
+    live: "https://github.com/dhanush186/sih2026",
+    github: "https://github.com/dhanush186/sih2026",
     skills: {
       frontend: [
-        PROJECT_SKILLS.html,
-        PROJECT_SKILLS.css,
-        PROJECT_SKILLS.js,
+        PROJECT_SKILLS.python,
+        PROJECT_SKILLS.scikitlearn,
       ],
-      backend: [],
+      backend: [
+        PROJECT_SKILLS.pandas,
+        PROJECT_SKILLS.numpy,
+      ],
     },
     get content(): JSX.Element {
       return (
         <div>
           <TypographyP className="font-mono ">
-            The Inan Infinites website serves as the official digital foundation of a product-based technology startup focused on building long-term, high-impact innovations. The platform is designed to reflect a premium, futuristic, and research-driven mindset inspired by leading global technology companies.
+            A competitive innovation project built for the Smart India Hackathon (SIH 2026), delivering practical AI/ML algorithms and data analysis for real-world challenge statements.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
           <p className="font-mono mb-2 mt-8">
-            It communicates the brand&apos;s vision of creating powerful, scalable, and deeply engineered products rather than short-term applications. The website emphasizes clean architecture, smooth animations, responsive layouts, and strong visual hierarchy to deliver a professional and trustworthy brand presence.
+            Engineered using Python and data-driven methods, the project addresses community and industrial problem statements by combining machine learning pipelines with clear programmatic logic.
           </p>
           <p className="font-mono mb-2 mt-4">
-            Beyond being a marketing website, it acts as a central hub for showcasing innovation philosophy, upcoming product ideas, and technical direction. This project highlights skills in frontend architecture, UI/UX design, branding consistency, and startup-level product thinking.
+            Emphasizes modular code organization, efficient data processing pipelines, and practical computational intelligence that can scale to real-world applications.
           </p>
         </div>
       );
     },
   },
   {
-    id: "inan-book",
-    category: "Web Application",
-    title: "Inan Book",
-    src: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&q=80",
-    screenshots: ["landing.png"],
-    live: "#",
-    skills: {
-      frontend: [
-        PROJECT_SKILLS.html,
-        PROJECT_SKILLS.css,
-        PROJECT_SKILLS.js,
-      ],
-      backend: [],
-    },
-    get content(): JSX.Element {
-      return (
-        <div>
-          <TypographyP className="font-mono ">
-            Inan Book is a modern digital reading and publishing platform designed for writers and readers. Authors can publish books online, manage chapters, and connect with readers. The platform features secure payments, analytics, and support for multiple genres.
-          </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <p className="font-mono mb-2 mt-8">
-            A comprehensive platform that bridges the gap between authors and readers, providing a seamless experience for digital publishing and reading. Built with modern web technologies to ensure fast performance and intuitive user experience.
-          </p>
-          <p className="font-mono mb-2 mt-4">
-            <strong>Note:</strong> This project is currently in progress as part of the Inan Infinites initiative to create world-changing digital products.
-          </p>
-        </div>
-      );
-    },
-  },
-  {
-    id: "resume-builder",
-    category: "Frontend Tool",
-    title: "Resume Builder",
-    src: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80",
-    screenshots: ["landing.png"],
-    live: "#",
-    skills: {
-      frontend: [
-        PROJECT_SKILLS.html,
-        PROJECT_SKILLS.css,
-        PROJECT_SKILLS.js,
-      ],
-      backend: [],
-    },
-    get content(): JSX.Element {
-      return (
-        <div>
-          <TypographyP className="font-mono ">
-            An interactive resume builder tool that helps users create professional resumes with customizable templates, real-time preview, and export functionality. The tool features a simple, clean, and user-friendly interface that makes resume creation effortless.
-          </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <p className="font-mono mb-2 mt-8">
-            Built with pure HTML, CSS, and JavaScript, this tool provides a straightforward approach to creating professional resumes. Users can customize various sections, see changes in real-time, and export their resumes in different formats.
-          </p>
-          <p className="font-mono mb-2 mt-4">
-            The responsive design ensures the resume builder works seamlessly across all devices, making it accessible for job seekers on the go.
-          </p>
-        </div>
-      );
-    },
-  },
-  {
-    id: "portfolio",
-    category: "3D Portfolio",
-    title: "3D Interactive Portfolio",
+    id: "3d-ai-portfolio",
+    category: "Interactive 3D Portfolio",
+    title: "3D Interactive AI/ML Portfolio",
     src: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80",
     screenshots: ["landing.png"],
-    live: "https://muhilanraj18.github.io/portfolio2/",
-    github: "https://github.com/Muhilanraj18/portfolio2",
+    live: "https://dhanush186.github.io/portfolio/",
+    github: "https://github.com/dhanush186/portfolio",
     skills: {
       frontend: [
+        PROJECT_SKILLS.python,
         PROJECT_SKILLS.next,
         PROJECT_SKILLS.react,
         PROJECT_SKILLS.ts,
-        PROJECT_SKILLS.tailwind,
         PROJECT_SKILLS.spline,
-        PROJECT_SKILLS.gsap,
-        PROJECT_SKILLS.framerMotion,
+        PROJECT_SKILLS.tailwind,
       ],
       backend: [],
     },
@@ -436,14 +408,14 @@ const projects: Project[] = [
       return (
         <div>
           <TypographyP className="font-mono ">
-            This very portfolio you&apos;re viewing! A 3D interactive portfolio built with Next.js, React, TypeScript, and Spline 3D. Features an interactive 3D keyboard, smooth scroll animations, particle effects, elastic cursor, and a clean modern design.
+            The interactive portfolio you are currently experiencing! Built with Next.js, React, TypeScript, Spline 3D, and Tailwind CSS to present AI/ML research and technical capabilities in a modern dark aesthetic.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
           <p className="font-mono mb-2 mt-8">
-            Built with performance in mind — lazy loading, code splitting, and optimized bundle sizes. The 3D keyboard responds to scroll position and key presses, creating an immersive and unique portfolio experience.
+            Features an interactive 3D scene, responsive glassmorphism interface, smooth scrolling, and optimized static export deployed seamlessly via GitHub Pages.
           </p>
           <p className="font-mono mb-2 mt-4">
-            Deployed on GitHub Pages with automated CI/CD via GitHub Actions for seamless updates.
+            Highlights academic credentials from Stella Mary&apos;s College of Engineering and research experience from IIIT Tiruchirappalli.
           </p>
         </div>
       );

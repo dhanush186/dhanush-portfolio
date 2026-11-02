@@ -24,6 +24,11 @@ export enum SkillNames {
   AWS = "aws",
   VIM = "vim",
   VERCEL = "vercel",
+  PYTHON = "python",
+  SCIKITLEARN = "scikitlearn",
+  PANDAS = "pandas",
+  NUMPY = "numpy",
+  PYTORCH = "pytorch",
 }
 export type Skill = {
   id: number;
@@ -233,6 +238,46 @@ using use = useUsing("use")`,
     color: "#6cc24a",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
   },
+  [SkillNames.PYTHON]: {
+    id: 25,
+    name: "python",
+    label: "Python",
+    shortDescription: "Core programming language for practical AI/ML solutions and data science.",
+    color: "#3776ab",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  },
+  [SkillNames.SCIKITLEARN]: {
+    id: 26,
+    name: "scikitlearn",
+    label: "Scikit-Learn",
+    shortDescription: "Machine learning algorithms, model evaluation, and predictive regression analytics.",
+    color: "#f7931e",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg",
+  },
+  [SkillNames.PANDAS]: {
+    id: 27,
+    name: "pandas",
+    label: "Pandas",
+    shortDescription: "Data manipulation, exploratory analysis, and feature engineering pipelines.",
+    color: "#150458",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
+  },
+  [SkillNames.NUMPY]: {
+    id: 28,
+    name: "numpy",
+    label: "NumPy",
+    shortDescription: "Scientific computing, matrix transformations, and numerical operations.",
+    color: "#013243",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg",
+  },
+  [SkillNames.PYTORCH]: {
+    id: 29,
+    name: "pytorch",
+    label: "PyTorch",
+    shortDescription: "Deep learning framework for acoustic modeling and neural networks.",
+    color: "#ee4c2c",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
+  },
 };
 
 export type Experience = {
@@ -245,47 +290,50 @@ export type Experience = {
   skills: SkillNames[];
 };
 
+export type Education = {
+  id: number;
+  degree: string;
+  institution: string;
+  location: string;
+  graduationYear: string;
+  cgpa: string;
+  description: string;
+};
+
+export const EDUCATION: Education[] = [
+  {
+    id: 1,
+    degree: "B.Tech. in Artificial Intelligence and Data Science",
+    institution: "Stella Mary's College of Engineering",
+    location: "Kanyakumari",
+    graduationYear: "Expected Graduation: 2028",
+    cgpa: "CGPA: 7.86",
+    description:
+      "Undergraduate curriculum emphasizing practical Machine Learning, Artificial Intelligence, Data Science, Python programming, and core software engineering.",
+  },
+];
+
 export const EXPERIENCE: Experience[] = [
   {
     id: 1,
-    startDate: "2024",
-    endDate: "Present",
-    title: "Freelance Frontend Developer",
-    company: "Crafted Clipz",
+    startDate: "March 2026",
+    endDate: "July 2026",
+    title: "Machine Learning Intern",
+    company: "Indian Institute of Information Technology Tiruchirappalli (IIIT Tiruchirappalli)",
     description: [
-      "Designed and developed multiple responsive websites using HTML, CSS, and JavaScript.",
-      "Built clean and visually engaging UI layouts aligned with the Crafted Clipz brand identity, following modern design principles and smooth animations.",
-      "Implemented interactive components such as navigation menus, forms, and animated sections to enhance user engagement.",
-      "Followed a mobile-first approach and ensured consistency across different browsers and devices.",
-      "Continuously optimized the Crafted Clipz websites for better performance, usability, and overall user experience.",
-      "Collaborated closely with stakeholders on creative ideas and refined visual consistency across all Crafted Clipz pages.",
+      "Completed intensive 5-month research internship under the AICTE-QIP-PG Certificate Programme on Machine Learning and Cyber Physical Systems.",
+      "Conducted machine learning research under the supervision of Dr. R. K. Madhumathi on 'Machine Learning-Based Prediction of Elastic Modulus of Coir Geotextile Reinforced Subgrade Soils'.",
+      "Developed, validated, and benchmarked predictive machine learning models using Python and data science libraries for geotechnical soil analysis.",
+      "Preprocessed experimental engineering datasets, engineered domain-relevant features, and evaluated model accuracy metrics to ensure robust predictions.",
+      "Applied machine learning methodologies to solve complex civil and geotechnical challenges with data-driven precision.",
     ],
     skills: [
-      SkillNames.HTML,
-      SkillNames.CSS,
-      SkillNames.JS,
+      SkillNames.PYTHON,
+      SkillNames.SCIKITLEARN,
+      SkillNames.PANDAS,
+      SkillNames.NUMPY,
       SkillNames.GIT,
-    ],
-  },
-  {
-    id: 2,
-    startDate: "2024",
-    endDate: "2024",
-    title: "Web Development Intern",
-    company: "Grow My Therapy",
-    description: [
-      "Gained hands-on exposure to real-world web development environments and professional project workflows.",
-      "Developed responsive and structured frontend interfaces, translating design concepts into functional web pages using modern web technologies.",
-      "Strengthened understanding of clean code practices, component-based thinking, and efficient UI structuring.",
-      "Learned how development teams collaborate, manage tasks, and deliver projects within deadlines.",
-      "Improved ability to analyze requirements, adapt to professional coding standards, and build scalable web solutions aligned with business needs.",
-      "The internship played a key role in shaping practical understanding of software development in an industry setting.",
-    ],
-    skills: [
-      SkillNames.HTML,
-      SkillNames.CSS,
-      SkillNames.JS,
-      SkillNames.GIT,
+      SkillNames.GITHUB,
     ],
   },
 ];

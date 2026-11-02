@@ -9,6 +9,8 @@ import { useToast } from "./ui/use-toast";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 
+import { config } from "@/data/config";
+
 const ContactForm = () => {
   const [fullName, setFullName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -25,7 +27,7 @@ const ContactForm = () => {
     // For GitHub Pages static deployment, use mailto
     const subject = encodeURIComponent(`Portfolio Contact from ${fullName}`);
     const body = encodeURIComponent(`Name: ${fullName}\nEmail: ${email}\n\nMessage:\n${message}`);
-    const mailtoLink = `mailto:muhilanraj1876@gmail.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:${config.email}?subject=${subject}&body=${body}`;
     
     window.location.href = mailtoLink;
     
@@ -77,7 +79,7 @@ const ContactForm = () => {
           onChange={(e) => setMessage(e.target.value)}
         />
         <p className="text-sm text-muted-foreground">
-          I&apos;ll never share your data with anyone else. Pinky promise!
+          Your information is kept strictly private and used solely to respond to your inquiry.
         </p>
       </div>
       <Button
